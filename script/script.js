@@ -7,9 +7,9 @@ var button = document.getElementById("button");
 var burgerName = document.getElementById("name");
 var ingredients = document.getElementsByClassName("ingredient-checkbox"); 
 /* Ingredients - class ingredient-checkbox - they all 've this class in HTML */
-console.log(ingredients) /* HTML collection (a kind of array) - HTML input from 1 to 6 - So now we need a loop for */
+console.log(ingredients); /* HTML collection (a kind of array) - HTML input from 1 to 6 - So now we need a loop for */
 
-
+var displayPrice = document.getElementById("price");
 
 // Price
 
@@ -45,7 +45,7 @@ button.addEventListener("click", function (){
         // Which elements of type checkbox are currently checked?
         //Their values are needed and they all are different so I need a loop for
 
-        for(i = 0; i < ingredients.length; i++);
+        for(i = 0; i < ingredients.length; i++) {
             var ingredientCheck = ingredients[i]; /*  variable created to avoid [i] repetition */
             console.log(ingredientCheck.checked);
             /* HTMLCollection(6) [input#cheese.ingredient-checkbox, 
@@ -66,5 +66,10 @@ button.addEventListener("click", function (){
                 price = price + parseInt(ingredientCheck.value);
             }
     }
+console.log(price);
+
+// Print the price
+displayPrice.innerHTML = price.toFixed(2);
+}  
 
 });
