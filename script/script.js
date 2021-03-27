@@ -10,6 +10,8 @@ var ingredients = document.getElementsByClassName("ingredient-checkbox");
 console.log(ingredients); /* HTML collection (a kind of array) - HTML input from 1 to 6 - So now we need a loop for */
 
 var displayPrice = document.getElementById("price");
+var coupon = document.getElementById("coupon");
+var discount = 0;
 
 // Price
 
@@ -67,6 +69,18 @@ button.addEventListener("click", function (){
             }
     }
 console.log(price);
+
+// coupon
+var coupons = ["ILEFTGG65G78", "ERITNGF56FDD", "IRTGCVBR567H7"];
+var couponCode = coupon.value;
+
+if(coupons.includes(couponCode) ) {
+    console.log("Accepted");
+
+    // 20% Off
+    var discount = price * 20 / 100;
+    price = price - discount;
+}
 
 // Print the price
 displayPrice.innerHTML = price.toFixed(2);
